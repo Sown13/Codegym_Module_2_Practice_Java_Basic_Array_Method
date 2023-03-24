@@ -8,25 +8,25 @@ public class Exercise1 {
             System.out.println(number);
         }
     }
+
     public static int[] deleteElement(int[] numberArr){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap so ban muon xoa");
         int x = scanner.nextInt();
-        int indexDel = 0;
-        for (byte i = 0; i < numberArr.length; i++){
-            if (x == numberArr[i]){
-                indexDel = i;
+        int countDel = 0;
+        for (int num : numberArr){
+            if (x == num){
+                countDel++;
             }
         }
-        int[] newArr = new int[numberArr.length - 1];
-        for (int i = 0; i < indexDel; i++){
-            newArr[i] = numberArr[i];
-        }
-        for (int i = indexDel; i < newArr.length; i++){
-            newArr[i] = numberArr[i+1];
+        int[] newArr = new int[numberArr.length - countDel];
+        for (int i =0, j = 0; i < numberArr.length; i++){
+            if (numberArr[i] != x ){
+                newArr[j] = numberArr[i];
+                j++;
+            }
         }
         return newArr;
     }
 }
 
-// chua xoa dc nhieu so giong nhau, need fix
